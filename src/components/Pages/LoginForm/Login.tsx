@@ -1,10 +1,13 @@
-import React from "react"
+import React, { useState } from "react"
 import { Formik, Form,} from "formik";
 import './Apps.css'
 import * as Yup from 'yup';
 import Button from '@mui/material/Button';
 
 import FormikFiled from '../FormikFiled'
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { login } from "../../Redux/apiCalls";
 
 interface FormValues {
     name:string,
@@ -33,8 +36,14 @@ const SignupSchema = Yup.object().shape({
 })
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch()
     const handelSubmit = (values: FormValues ):void=>{
-        alert(JSON.stringify(values));
+        setUsername(values.name)
+        setPassword(values.password)
+        console.log(username, password);
+        login(dispatch,{username,password})
     };
   return (
     <div className="App">
@@ -57,7 +66,7 @@ const Login = () => {
         }}    
 
         </Formik>
-        <a href="/">Or Sign Up</a>
+        <a href="/signup">Or Sign Up</a>
     </div>
   )
 }
