@@ -18,7 +18,6 @@
     "@types/yup": "^0.29.14",
     "formik": "^2.2.9",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0",
     "react-scripts": "^2.1.8",
     "styled-components": "^5.3.5",
     "typescript": "^4.7.3",
