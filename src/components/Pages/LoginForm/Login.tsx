@@ -36,14 +36,9 @@ const SignupSchema = Yup.object().shape({
 })
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const dispatch = useDispatch()
     const handelSubmit = (values: FormValues ):void=>{
-        setUsername(values.name)
-        setPassword(values.password)
-        console.log(username, password);
-        login(dispatch,{username,password})
+    //    axios.get('https://wtm-sample-apis.staging.wtmsrv.com/api/auth/login',values)
     };
   return (
     <div className="App">

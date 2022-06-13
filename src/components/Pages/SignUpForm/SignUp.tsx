@@ -40,12 +40,10 @@ const SignupSchema = Yup.object().shape({
 })
 
 const SignUp = () => {
-  const user = useSelector((state) => state)
-  
     const handelSubmit = (values: FormValues ):void=>{
         axios.post("https://wtm-sample-apis.staging.wtmsrv.com/api/auth/signup",values).then((res)=>{
-        console.log(user,res);
-
+        const userInfo = res.data;
+        const userToken = res.data.access_token;
         })
     };
   return (
